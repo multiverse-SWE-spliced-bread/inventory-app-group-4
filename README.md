@@ -1,6 +1,14 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8311838&assignment_repo_type=AssignmentRepo)
 # w9-inventory-app
 
+# Run
+npm install sqlite3
+npm install sequelize
+npm install jest
+npm install express
+npx create-react-app inventory-app
+npm install node
+
 ## Overview
 
 | Features 	| As a user...                                                                      	|
