@@ -8,6 +8,7 @@ npm install jest
 npm install express
 npx create-react-app inventory-app
 npm install node
+npm install sql
 
 ## Overview
 
