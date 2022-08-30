@@ -2,13 +2,14 @@ const { db } = require('../roots/db');
 const { Sequelize, DataTypes } = require('sequelize');
 
 const Item = db.define('item', {
-    title: {type: DataTypes.STRING},
-    price: {type: DataTypes.DECIMAL},
-    description: {type: DataTypes.TEXT},
-    category: {type: DataTypes.STRING},
-    image: {type: DataTypes.STRING}
+    title: {type: DataTypes.STRING, allowNull: false},
+    price: {type: DataTypes.DECIMAL, allowNull: false},
+    description: {type: DataTypes.TEXT, allowNull: false},
+    category: {type: DataTypes.STRING, allowNull: false},
+    image: {type: DataTypes.STRING, allowNull: false}
 })
 
+/*
 async function main(){
     await Item.sync()
 
@@ -17,5 +18,7 @@ async function main(){
     })
 }
 main()
+*/
+
 
 module.exports = {Item}
