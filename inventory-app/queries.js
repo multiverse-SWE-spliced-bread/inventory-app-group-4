@@ -1,5 +1,5 @@
 const { response } = require('express')
-const { db } = require('../server/routes/db')
+const { db } = require('../server/db')
 //import React, { useState, useEffect } from 'react';
 
 //Returns all data in the database
