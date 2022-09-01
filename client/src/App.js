@@ -51,8 +51,7 @@ export const Mp = () => {
     return(
         <div>
           Hello world
-          
-          {itemsData.map(item => (<div>{item.title}</div>))}
+      
 
           
           
@@ -90,6 +89,7 @@ export const Mp = () => {
               <h2 class="subtitle">All Items</h2>
 
                 {/* Put rows of data here */}
+                {itemsData.map(item => (<div>{item.title}</div>))}
 
               </div>
           </section>
