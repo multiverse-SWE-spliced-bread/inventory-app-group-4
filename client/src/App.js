@@ -50,31 +50,6 @@ export const Mp = () => {
 
     return(
         <div>
-          Hello world
-      
-
-          
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           {/* temp - testing html and css */}
 
@@ -89,7 +64,7 @@ export const Mp = () => {
               <h2 class="subtitle">All Items</h2>
 
                 {/* Put rows of data here */}
-                {itemsData.map(item => (<div>{item.title}</div>))}
+                {itemsData.map(item => (<div class="box">{item.title}</div>))}
 
               </div>
           </section>
