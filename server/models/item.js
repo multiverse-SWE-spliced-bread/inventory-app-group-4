@@ -1,4 +1,4 @@
-const { db } = require('../routes/db');
+const { db } = require('../db');
 const { Sequelize, DataTypes } = require('sequelize');
 
 const Item = db.define('item', {

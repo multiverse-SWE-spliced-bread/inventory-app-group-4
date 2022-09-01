@@ -1,6 +1,6 @@
 const { db } = require("./db");
-const express = require('express');
 const { getEnvironmentData } = require("worker_threads");
+const express = require('express');
 const app = express()
 
 var sqlite3 = require('sqlite3')
@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     })
   })
 
-  data.close()
+  //data.close()
 })
 
 const init = async () => {

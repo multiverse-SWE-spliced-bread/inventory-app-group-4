@@ -1,4 +1,4 @@
-const {db} = require('./db')
+const {db} = require('../db')
 const {itemsData} = require('../seedData');
 const {Item} = require('../models/item')
 

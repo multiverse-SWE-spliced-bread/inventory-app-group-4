@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { itemList } from './itemList';
 
 
 export const Mp = () => {
@@ -6,7 +7,7 @@ export const Mp = () => {
 
     const getMp = async () => {
 
-        const result = await fetch('http://localhost:5000')
+        const result = await fetch('http://localhost:3000/items')
         const data = await result.json()
 
         setMp(data)
@@ -20,7 +21,7 @@ export const Mp = () => {
     return(
         <div>
             <h1>Hello world</h1>
-            <h2>itemsData= {itemsData}</h2>
+            <itemList items= {items}/>
         </div>
 
 
