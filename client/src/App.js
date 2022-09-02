@@ -1,30 +1,3 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
 import React, { useState, useEffect} from 'react';
 import './style.css';
 
@@ -68,7 +41,38 @@ export const Mp = () => {
                 <button class='update'>Update Item</button>
                 <button class='delete'>Delete Item</button>
               </div>
+
+              <div class="form">
+                <form enctype="text/plain" action="submit.php" method="POST">
+                  <div class="fields">
+                    <div class="field name">
+                      <input id="productName" type="text" name="productName" placeholder="Item Name..." required></input>
+                    </div>
+                    <div class="field email">
+                        <select id="productCategory" name="productCategory" required>
+                        <option value="" disabled selected hidden>Choose Category...</option>
+                          <option value="Men's Clotihng">men's clothing</option>
+                          <option value="Women's Clotihng">women's clotihng</option>
+                          <option value="electronics">electronics</option>
+                          <option value="jewelery">jewelery</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="field textarea">
+                    <textarea id="textarea" cols="30" rows="10" name="productDescription" placeholder="Description..." required></textarea>
+                  </div>
+                  <div class="field">
+                    <input id="productImage" type="url" name="productImage" placeholder="Image URL..." required></input>
+                  </div>
+                  {/*<div class="button">
+                    <button type="submit" value="submit">Submit</button>
+                  </div>*/}
+                  <br></br>
+                </form>
+              </div>
+
               <p class="tip">*To find the categaory and decscription of a product, hover over the proudct image*</p>
+
 
               <div class='show' id='show'>
                 {/* Put rows of data here */}
