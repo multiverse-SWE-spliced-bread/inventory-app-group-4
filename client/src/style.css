@@ -12,6 +12,13 @@ html
     scroll-behavior: smooth;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 510px;
+ }
+
 .max-width
 {
     max-width: 1300px;
@@ -94,36 +101,283 @@ section .subtitle::after
     transform: translateX(-50%);
 }
 
+section .details
+{
+    text-align: center;
+    transform: translateY(-40px);
+}
+
+section .tip {
+    text-align: center;
+    transform: translateY(-5px);
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.footer{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    margin-top: 250vh;
+}
+
 .home .title::after {
     content: "Group 4"
 }
 
 .home {
-    padding-top: 75px;
+    padding-top: 100px;
 }
 .row {
     display: flex;
     width: 100%;
   }
   
-  .box {
-    width: 40%;
+.box {
+    width: calc(33% - 40px);
+    transform: translateX(-5px);
     float: left;
-    margin: 10px;
-    margin-left: 6%;
+    margin: 5px;
+    margin-left: 3%;
     text-align: center;
     vertical-align: middle;
+    height: 250px;
+    border-radius: 25px;
+    background-color: rgb(200, 200, 200);
+    color: rgba(0, 0, 0, 255);
+    padding: 30px;
+    display: inline-block;
+    line-height: 1.4;
+    font-size: 13px;
+    word-wrap: break-word;
+    transition: all ease 0.4s;
+    overflow:hidden;
+}
+
+.box p{
+    position: relative;
+    padding-top: 10px;
+    transform: translate(-25px, 130px);
     height: 100px;
     border-radius: 25px;
-    cursor: pointer;
+    width: calc(100% + 40px);
     background-color: rgb(200, 200, 200);
-    padding: 5px;
-    padding-top: 30px;
+}
+
+/*
+.boxDetails {
+    width: 100%;
+    text-align: right;
+    vertical-align: middle;
+    height: 250px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 255);
     display: inline-block;
     line-height: 1.5;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0);
+    border: 5px black solid;
+    transform: translateY(-150px);
     transition: all ease 0.4s;
+}
+
+.boxDetails:hover{
+    color: rgba(0, 0, 0, 255);
+}
+*/
+
+.box:hover {
+    background-color: rgba(230, 230, 230, 255);
+    color: rgba(0, 0, 0, 255);
+    font-size: 12px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.box:hover > .image, .box:hover .price, .box:hover .productTitle{
+    display: none;
+}
+
+.box:hover > .productDesc, .box:hover .title2, .box:hover .space{
+    display: contents;
+}
+
+.productDesc, .title2, .space{
+    display: none;
+}
+
+.title2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.buyBtn{
+    position:relative;
+    height: 25px;
+    border-radius: 10px;
+    width: 125px;
+    cursor: pointer;
+    margin-top: 15px;
+    background-color: rgb(200, 200, 200);
+    border:rgba(0, 0, 0, 255);
+    transform: translateY(0);
+    transition: all ease 0.4s;
+}
+
+.buyBtn:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.productDesc{
+    margin-top:20px;
+}
+
+
+.image{
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    transform: translateX(-50%);
+    width:  150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 25px;
+    padding: 10px;
+    transition: all ease 0.4s;
+}
+
+
+.image:hover{
+    width:  165px;
+    height: 230px;
+}
+
+
+
+.buttons {
+    text-align: center;
+    transform: translateY(-25px);
+}
+
+.buttons .update {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.add, .update, .delete {
+    width: 100px;
+    height: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+    border: 0px;
+    transition: all ease 0.4s;
+}
+
+.add:hover, .update:hover, .delete:hover {
+    background-color: rgba(230, 230, 230, 255);
+}
+
+.buttonDetails{
+    position:relative;
+    height: 25px;
+    border-radius: 10px;
+    width: 125px;
+    cursor: pointer;
+    background-color: rgba(230, 230, 230, 255);
+    border:rgba(0, 0, 0, 255);
+    transition: all ease 0.4s;
+}
+
+.buttonDetails:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.price{
+    margin: 3px;
+    margin-bottom: -12px;
+    padding: 0px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.show{
+    display: contents;
+}
+
+.footerTxt{
+    text-align: center;
+    color: white;
+    height: 40px;
+    line-height: 50px;
+    font-size: 12px;
+}
+
+.footerTxt2{
+    text-align: center;
+    color: white;
+    height: 40px;
+    line-height: 10px;
+    font-size: 12px;
+}
+
+@media  only screen and (max-width: 1200px){
+    .box {
+        transform: translateX(5px);
+    }
+}
+
+@media  only screen and (max-width: 1000px){
+    .box {
+        width: 45%;
+    }
+    .footer{
+        margin-top: 360vh;
+    }
+}
+
+  @media  only screen and (max-width: 700px){
+    .box {
+        width: 80%;
+        margin-left: 10%;
+        font-size: 16px;
+    }
+    .box:hover{
+        width: 85%;
+        transform: translate(-3%);
+    }
+    .footer{
+        margin-top: 715vh;
+    }
+  }
+  @media  only screen and (max-width: 527px){
+    .add, .update {
+        transform: translate(15%);
+        margin-bottom: 10px;
+    }
+    .box{
+        height: 325px;
+    }
+    .box p{
+        transform: translate(-20px, 205px);
+    }
+  }
+  @media  only screen and (max-width: 427px){
+    .add, .update {
+        transform: translate(0%);
+        margin-bottom: 10px;
+    }
   }
 
-  .box:hover {
-    background-color: rgb(230, 230, 230);
-  }
+  /*
+  img {
+    float: left;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+*/
+
