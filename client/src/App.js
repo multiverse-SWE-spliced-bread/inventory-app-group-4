@@ -1,7 +1,13 @@
 import React, { useState, useEffect} from 'react';
 import './style.css';
+import {Button} from "react-bootstrap"
+import {useNavigate} from "react-router-dom"
+import SinglePage from './components/singlePage';
+ 
+
 
 export const Mp = () => {
+  const navigate = useNavigate();
 
     const [itemsData, setMp] = useState([])
 
@@ -18,6 +24,27 @@ export const Mp = () => {
 
     useEffect(() => {
         getMp()
+
+    }, [])
+
+    const [temp, setSinglePage] = useState([])
+
+    const getSinglePage = async (id) => {
+      try{
+        const result = await fetch(`http://localhost:5000/${id}`)
+        var data = await result.json()
+        setSinglePage(data)
+        sessionStorage.setItem("data", JSON.stringify(data))
+        var obj = JSON.parse(sessionStorage.data)
+        navigate("view")
+        console.log(data)
+      } catch (err) {
+        console.log("Oh no an error! ", err)
+      }
+    }
+
+    useEffect(() => {
+        getSinglePage()
 
     }, [])
 
@@ -52,7 +79,7 @@ export const Mp = () => {
                         <select id="productCategory" name="productCategory" required>
                         <option value="" disabled selected hidden>Choose Category...</option>
                           <option value="Men's Clotihng">men's clothing</option>
-                          <option value="Women's Clotihng">women's clotihng</option>
+                          <option value="Women's Clotihng">women's clothing</option>
                           <option value="electronics">electronics</option>
                           <option value="jewelery">jewelery</option>
                         </select>
@@ -76,7 +103,7 @@ export const Mp = () => {
 
               <div class='show' id='show'>
                 {/* Put rows of data here */}
-                {itemsData.map(item => (<div class="box"><h2 class="title2">{item.title}<br></br>( {item.category} )</h2><p class='space'><br></br></p><p class="productDesc">{item.description}<br></br><button class='buyBtn'>Buy now</button></p><img class="image" id='a' src={item.image} alt=""/><p class='productTitle'>{item.title}<br></br><div class='price'>£{item.price}</div><br></br><button class='buttonDetails'>Hover for details</button></p></div>))}
+                {itemsData.map((item) => (<div class="box"><h2 class="title2">{item.title}<br></br>( {item.category} )</h2><p class='space'><br></br></p><p class="productDesc">{item.description}<br></br><button class='buyBtn' onClick={() => {getSinglePage(item.id)}}>More Details</button></p><img class="image" id='a' src={item.image} alt=""/><p class='productTitle'>{item.title}<br></br><div class='price'>£{item.price}</div><br></br><button class='buttonDetails'>Hover for details</button></p></div>))}
               </div>
 
             </div>
@@ -84,8 +111,8 @@ export const Mp = () => {
 
           <section class='footer' id='footer'>
             <div class="max-width">
-              <p class='footerTxt'>All rights reserved Ⓒ</p>
-              <p class='footerTxt2'>Proudced by Yayhe, Sunny & Scott</p>
+              <p class='footerTxt'>All rights reserved Ⓒ Inventory App</p>
+              <p class='footerTxt2'>Produced by Yayhe, Sunny & Scott</p>
             </div>
           </section>
         </div>
